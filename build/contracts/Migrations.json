@@ -1,0 +1,68 @@
+{
+  "contractName": "Migrations",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "last_completed_migration",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function",
+      "signature": "0x445df0ac"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "completed",
+          "type": "uint256"
+        }
+      ],
+      "name": "setCompleted",
+      "outputs": [],
+      "payable": false,
+      "type": "function",
+      "signature": "0xfdacd576"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "new_address",
+          "type": "address"
+        }
+      ],
+      "name": "upgrade",
+      "outputs": [],
+      "payable": false,
+      "type": "function",
+      "signature": "0x0900f010"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.4.9+commit.364da425\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"new_address\",\"type\":\"address\"}],\"name\":\"upgrade\",\"outputs\":[],\"payable\":false,\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"last_completed_migration\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"completed\",\"type\":\"uint256\"}],\"name\":\"setCompleted\",\"outputs\":[],\"payable\":false,\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/dp/go/src/github.com/solidity-precompiled/contracts/Migrations.sol\":\"Migrations\"},\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/dp/go/src/github.com/solidity-precompiled/contracts/Migrations.sol\":{\"keccak256\":\"0x10b1d6311462f60b3deca2c8dc02169af2dc5dbfe56d9c750e000efb148b03a0\",\"urls\":[\"bzzr://a847bf9eb22afd3154a94f78a78dd3ab81c4b40db9e16609135e040c97849678\"]},\"/Users/dp/go/src/github.com/solidity-precompiled/contracts/Precompile.sol\":{\"keccak256\":\"0x6aaf3bd487023236abeb32f1d297f70575f0a6bbd3110ca38924cd32d90515fb\",\"urls\":[\"bzzr://1b03ef563d96894429b3bf18a285b0672d2d1f2abd1f6bb4253a314583bc0373\"]},\"/Users/dp/go/src/github.com/solidity-precompiled/contracts/Precompile2.sol\":{\"keccak256\":\"0x1cf58dac6335ce6db0a5256ab00406b6041d35294b715ec1722a925a1d85bfc1\",\"urls\":[\"bzzr://b3c099503f4c85ac9c77362c47ecbd2149a103dc926b5f41449d7bb034db7c4c\"]}},\"version\":1}",
+  "bytecode": "0x6060604052341561000c57fe5b5b6101918061001c6000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630900f01014610051578063445df0ac14610087578063fdacd576146100ad575bfe5b341561005957fe5b610085600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506100cd565b005b341561008f57fe5b610097610154565b6040518082815260200191505060405180910390f35b34156100b557fe5b6100cb600480803590602001909190505061015a565b005b60008190508073ffffffffffffffffffffffffffffffffffffffff1663fdacd5766000546040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180828152602001915050600060405180830381600087803b151561013f57fe5b60325a03f1151561014c57fe5b5050505b5050565b60005481565b806000819055505b505600a165627a7a723058203df3330f2b1e51f8c5fb9ea6218b2758f59ebfc03677acc85ba66f8f332704200029",
+  "deployedBytecode": "0x60606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630900f01014610051578063445df0ac14610087578063fdacd576146100ad575bfe5b341561005957fe5b610085600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506100cd565b005b341561008f57fe5b610097610154565b6040518082815260200191505060405180910390f35b34156100b557fe5b6100cb600480803590602001909190505061015a565b005b60008190508073ffffffffffffffffffffffffffffffffffffffff1663fdacd5766000546040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180828152602001915050600060405180830381600087803b151561013f57fe5b60325a03f1151561014c57fe5b5050505b5050565b60005481565b806000819055505b505600a165627a7a723058203df3330f2b1e51f8c5fb9ea6218b2758f59ebfc03677acc85ba66f8f332704200029",
+  "sourceMap": "25:519:0:-;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "25:519:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;378:164;;;;;;;;;;;;;;;;;;;;;;;;;;80:36;;;;;;;;;;;;;;;;;;;;;;;;;;;;;274:98;;;;;;;;;;;;;;;;;;;;;;;;378:164;433:19;466:11;433:45;;488:8;:21;;;510:24;;488:47;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;378:164;;;:::o;80:36::-;;;;:::o;274:98::-;356:9;329:24;:36;;;;274:98;;:::o",
+  "source": "pragma solidity ^0.4.9;\n\ncontract Migrations {\n    // address public owner;\n    uint public last_completed_migration;\n\n    // modifier restricted() {\n    //     if (msg.sender == owner) _;\n    // }\n\n    // constructor() public {\n    //     owner = msg.sender;\n    // }\n\n    function setCompleted(uint completed) public {\n        last_completed_migration = completed;\n    }\n\n    function upgrade(address new_address) public {\n        Migrations upgraded = Migrations(new_address);\n        upgraded.setCompleted(last_completed_migration);\n    }\n}\n\n// contract Precompile2 {\n//     function foo(bytes32, uint8, bytes32, bytes32) public returns (address);\n// }\n\n// contract TestContract {\n//     address last = 0x0;\n\n//     event Debug(string message, address res);\n\n//     Precompile2 prec = Precompile2(0x0000000000000000000000000000000000000001);\n\n//     function testMe() public {\n//         last = prec.foo(\"\\x00\", uint8(0), \"\\x00\", \"\\x00\");\n//         // prec.foo(\"\\x00\", uint8(0), \"\\x00\", \"\\x00\");\n//         Debug(\"testMe()\", last);\n//     }\n\n// }\n",
+  "sourcePath": "/Users/dp/go/src/github.com/solidity-precompiled/contracts/Migrations.sol",
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.9+commit.364da425.Emscripten.clang"
+  },
+  "networks": {
+    "1101": {
+      "events": {},
+      "links": {},
+      "address": "0x17d6201BaAC99A7e0fE0ddE21B86D9A5b14A905B",
+      "transactionHash": "0x50761c6dfa9ebdae1f5aeda72efea5cb232a575ea31e0fddb6b636c82df684fa"
+    }
+  },
+  "schemaVersion": "3.0.6",
+  "updatedAt": "2019-06-18T16:11:25.909Z"
+}

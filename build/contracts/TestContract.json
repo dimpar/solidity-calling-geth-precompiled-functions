@@ -1,0 +1,44 @@
+{
+  "contractName": "TestContract",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "message",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "res",
+          "type": "address"
+        }
+      ],
+      "name": "Debug",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "testMe",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.4.9+commit.364da425\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[],\"name\":\"testMe\",\"outputs\":[],\"payable\":false,\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"message\",\"type\":\"string\"},{\"indexed\":false,\"name\":\"res\",\"type\":\"address\"}],\"name\":\"Debug\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/dp/go/src/github.com/solidity-precompiled/contracts/Precompile2.sol\":\"TestContract\"},\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/dp/go/src/github.com/solidity-precompiled/contracts/Migrations.sol\":{\"keccak256\":\"0x10b1d6311462f60b3deca2c8dc02169af2dc5dbfe56d9c750e000efb148b03a0\",\"urls\":[\"bzzr://a847bf9eb22afd3154a94f78a78dd3ab81c4b40db9e16609135e040c97849678\"]},\"/Users/dp/go/src/github.com/solidity-precompiled/contracts/Precompile.sol\":{\"keccak256\":\"0x6aaf3bd487023236abeb32f1d297f70575f0a6bbd3110ca38924cd32d90515fb\",\"urls\":[\"bzzr://1b03ef563d96894429b3bf18a285b0672d2d1f2abd1f6bb4253a314583bc0373\"]},\"/Users/dp/go/src/github.com/solidity-precompiled/contracts/Precompile2.sol\":{\"keccak256\":\"0x1cf58dac6335ce6db0a5256ab00406b6041d35294b715ec1722a925a1d85bfc1\",\"urls\":[\"bzzr://b3c099503f4c85ac9c77362c47ecbd2149a103dc926b5f41449d7bb034db7c4c\"]}},\"version\":1}",
+  "bytecode": "0x60606040526000600060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506001600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550341561009057fe5b5b610249806100a06000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063524158401461003b575bfe5b341561004357fe5b61004b61004d565b005b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663debc395160006000604051602001526040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808060008152506020018260ff1660ff168152602001806000815250602001806000815250602001915050602060405180830381600087803b151561010557fe5b60325a03f1151561011257fe5b50505060405180519050600060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055507f14186b8ac9c91f14b0f16f9e886356157442bb899be26513dfe1d4d5929a5bac600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1660405180806020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828103825260088152602001807f746573744d6528290000000000000000000000000000000000000000000000008152506020019250505060405180910390a15b5600a165627a7a723058205f2bd85f3e36e28c25e64e14a2f8bba510a9f21971f32d25eb9185139d46b4460029",
+  "deployedBytecode": "0x60606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063524158401461003b575bfe5b341561004357fe5b61004b61004d565b005b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663debc395160006000604051602001526040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808060008152506020018260ff1660ff168152602001806000815250602001806000815250602001915050602060405180830381600087803b151561010557fe5b60325a03f1151561011257fe5b50505060405180519050600060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055507f14186b8ac9c91f14b0f16f9e886356157442bb899be26513dfe1d4d5929a5bac600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1660405180806020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828103825260088152602001807f746573744d6528290000000000000000000000000000000000000000000000008152506020019250505060405180910390a15b5600a165627a7a723058205f2bd85f3e36e28c25e64e14a2f8bba510a9f21971f32d25eb9185139d46b4460029",
+  "sourceMap": "128:363:2:-;;;171:3;156:18;;;;;;;;;;;;;;;;;;;;259:42;228:74;;;;;;;;;;;;;;;;;;;;128:363;;;;;;;;;;;;;",
+  "deployedSourceMap": "128:363:2:-;;;;;;;;;;;;;;;;;309:179;;;;;;;;;;;;;351:4;;;;;;;;;;;:8;;;374:1;351:42;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;344:4;;:49;;;;;;;;;;;;;;;;;;458:23;476:4;;;;;;;;;;;458:23;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;309:179;:::o",
+  "source": "pragma solidity ^0.4.9;\n\ncontract Precompile2 {\n    function foo(bytes32, uint8, bytes32, bytes32) public returns (address);\n}\n\ncontract TestContract {\n    address last = 0x0;\n\n    event Debug(string message, address res);\n\n    Precompile2 prec = Precompile2(0x0000000000000000000000000000000000000001);\n\n    function testMe() public {\n        last = prec.foo(\"\\x00\", uint8(0), \"\\x00\", \"\\x00\");\n        // prec.foo(\"\\x00\", uint8(0), \"\\x00\", \"\\x00\");\n        Debug(\"testMe()\", last);\n    }\n\n}",
+  "sourcePath": "/Users/dp/go/src/github.com/solidity-precompiled/contracts/Precompile2.sol",
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.9+commit.364da425.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.6",
+  "updatedAt": "2019-06-18T16:10:27.770Z"
+}

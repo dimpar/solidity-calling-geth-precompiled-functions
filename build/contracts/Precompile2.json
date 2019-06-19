@@ -1,0 +1,49 @@
+{
+  "contractName": "Precompile2",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        },
+        {
+          "name": "",
+          "type": "uint8"
+        },
+        {
+          "name": "",
+          "type": "bytes32"
+        },
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "foo",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    }
+  ],
+  "metadata": "",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.9;\n\ncontract Precompile2 {\n    function foo(bytes32, uint8, bytes32, bytes32) public returns (address);\n}\n\ncontract TestContract {\n    address last = 0x0;\n\n    event Debug(string message, address res);\n\n    Precompile2 prec = Precompile2(0x0000000000000000000000000000000000000001);\n\n    function testMe() public {\n        last = prec.foo(\"\\x00\", uint8(0), \"\\x00\", \"\\x00\");\n        // prec.foo(\"\\x00\", uint8(0), \"\\x00\", \"\\x00\");\n        Debug(\"testMe()\", last);\n    }\n\n}",
+  "sourcePath": "/Users/dp/go/src/github.com/solidity-precompiled/contracts/Precompile2.sol",
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.9+commit.364da425.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.6",
+  "updatedAt": "2019-06-18T16:10:27.769Z"
+}
